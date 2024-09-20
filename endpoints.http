@@ -20,9 +20,9 @@ PUT http://localhost:3333/carros/id
 Content-Type: application/json
 
 {
-    "marca": "Ferrari",
-    "modelo": "LaFerrari",
-    "placa": "ABC1B34"
+    "marca": "Lamborghini",
+    "modelo": "Aventador",
+    "placa": "CBA1B34"
 }
 
 ###
