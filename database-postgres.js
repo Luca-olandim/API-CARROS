@@ -22,7 +22,7 @@ export class DatabaseCarros {
     const modelo = carro.modelo;
     const placa = carro.placa;
 
-    await sql`update users set 
+    await sql`update carros set 
         marca = ${marca},
         modelo = ${modelo},
         placa = ${placa}
