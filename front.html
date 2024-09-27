@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API CARROS</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Marca" id="marca">
+    <input type="text" placeholder="Modelo" id="modelo">
+    <input type="text" placeholder="Placa" id="placa">
+
+    <button onclick="criarCarros()"> Adicionar CARRO</button>
+
+    <p id="carros"></p>
+
+
+    <script>
+        async function pegarCarros(){
+            const resposta =  await fetch (`http://localhost:3333/carros`,{
+                method: 'GET'
+            })
+            const carros = await resposta.json();
+            console.log(carros);
+
+            const elementoP = document.getElementById('carros');
+            elementoP.innerHTML = carros[0].marca;
+        }    
+        pegarCarros();
+
+        async function criarCarros(){
+            const marca = document.getElementById('marca').value;
+            const modelo = document.getElementById('modelo').value;
+            const placa = document.getElementById('placa').value;
+
+            const novoCarro = {
+                "marca": marca,
+                "modelo": modelo,
+                "placa": placa
+            };
+            const resposta =  await fetch (`http://localhost:3333/carros`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novoCarro)
+            });
+        }    
+        criarCarros();
+    </script>
+</body>
+</html>
