@@ -16,7 +16,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3333/carros/48720f0e-f6e0-42e0-b326-8d65ee97fb36
+PUT http://localhost:3333/carros/id
 Content-Type: application/json
 
 {
